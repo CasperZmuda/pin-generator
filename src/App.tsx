@@ -4,17 +4,33 @@ function App() {
 
 	const maxDate = today.toISOString().split("T")[0];
 
-	const PIN = () => {
-		const A = Math.random();
-		const B = 111;
-		return `${A}${B}`;
+	const handleSubmit = (e: any) => {
+		e.preventDefault();
+
+		const PIN = () => {
+			// do każdej litery przypisywać funkcję i stworzyć cyfrę kontrolną, zrobić research czemu e.target.name działa
+			const A = e.target.gender.value === "male" ? "M" : "F";
+			const B = e.target.birthDate.value.slice(2).replaceAll("-", "");
+			const C = randomHexByte();
+			const D = "A";
+
+			function randomHexByte() {
+				const array = new Uint8Array(1);
+				crypto.getRandomValues(array);
+				return array[0].toString(16).padStart(2, "0");
+			}
+
+			return `${A}_${B}_${C}_${D}`;
+		};
+
+		console.log(PIN());
 	};
 
-	console.log(PIN())
+	// dodać walidacje w imie i nazwiso żeby nie można było dawać znaków specjalinych i numerów
 
 	return (
 		<>
-			<form id="pin-form">
+			<form id="pin-form" onSubmit={handleSubmit}>
 				<div>
 					<label htmlFor="name">Imię i nazwisko noworodka:</label>
 					<input
