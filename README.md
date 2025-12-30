@@ -1,28 +1,32 @@
 # 🪪 PIN GENERATOR
 
 > [!WARNING]
-> Ten projekt ma charakter wyłącznie edukacyjny i demonstracyjny. Nie jest powiązany z żadnym rządowym, państwowym ani oficjalnym systemem identyfikacji (np. PESEL, SSN itp.). Generowane identyfikatory nie są prawdziwymi numerami identyfikacyjnymi i nie powinny być używane w rzeczywistych systemach produkcyjnych. Wszystkie dane są zmyślone, przypadkowe, a zdjęcia osób generowane z użyciem AI.
+> Ten projekt ma charakter wyłącznie edukacyjny i demonstracyjny. Nie jest powiązany z żadnym rządowym, państwowym ani oficjalnym systemem identyfikacji (np. PESEL, SSN itp.). Generowane identyfikatory nie są prawdziwymi numerami identyfikacyjnymi.
 
-<!-- Projekt **pin-generator** służy do generowania specyficznego ciągu znaków na bazie podanych parametrów z wykorzystaniem biblioteki Crypto. -->
+Projekt **pin-generator** służy do generowania unikalnego kodu alfanumerycznego znaków na podstawie zdefiniowanego formatu oraz parametrów wejściowych.
 
-Projekt **pin-generator** służy do generowania specyficznego kodu alfanumerycznego znaków na bazie podanych parametrów z wykorzystaniem biblioteki Crypto.
+### Składnia numeru
+Każdy wygenerowany PIN ma ściśle określoną strukturę założoną z 11. znaków. Składa się z czterech segmentów `[A][B][C][D]`.
+
+<!--
+SYNTAX PIN:
+
+PIN składa się z czterech segmentów: [A][B][C][D]. Po rozpisaniu segmentów, wygląda to tak: [M/F][YYMMDD][000-999][0-9].
+
+[A][B][C][D] -> [M/F][YYMMDD][000-999][0-9]
+
+[A] -> [M/F] = płeć noworodka
+[B] -> [YYMMDD] = data narodzin
+[C] -> [000-999] = losowy numer / ew. jakieś równianie gdzie bierzemy godzinę narodzin
+[D] -> [0-9] = cyfra kontrolna (wymyślić algorytm) / ew. dodanie do siebie wszystkich cyfr i modulo
+
+PIN ma również generować UUID dla noworodka.
+-->
 
 <!--
 TODO:
 - rozwinąć opis projektu,
-- przeredagować "warning",
-- dopisać o inspiracji oficjalnymi systemami,
 - rozwinąć wątek bezpieczeństwa i losowości,
 - rozpisać format (syntax) tego numeru,
 - zrobić walidację,
--->
-
-<!--
-PIN:
-[P][][][][][][][][][K]
-- ma składać się z 10 znaków
-- pierwszy, zawsze jest M/K oznaczający płeć
--
-- PIN pod spodem ma również generować UUID dla dziecka, które to dziecko w sensie liczba ile się urodziło już czy coś(?) i czas rejestracji, data i godzina!
-
 -->
