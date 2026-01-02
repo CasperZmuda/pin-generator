@@ -7,14 +7,7 @@ function App() {
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
 
-		// if (e.target.name.includes(" ")) {
-		// 	console.log("Nie można używać spacji w imieniu i nazwisku");
-		// 	return;
-		// }
-		// console.log(e.target.name.value);
-
 		const PIN = () => {
-			// przeanalizować cały kod
 			const A = getGender();
 			const B = getBirthDate();
 			const C = getRandomNumber();
@@ -35,7 +28,6 @@ function App() {
 			}
 
 			function getCheckDigit() {
-				// pierwsza wersja cyfry kontrolnej
 				const checkDigit = Number(B + C)
 					.toString()
 					.split("")
@@ -55,7 +47,10 @@ function App() {
 		console.log(`Wygenerowany PIN: "${PIN()}"`);
 	};
 
-	// dodać walidacje w imie i nazwiso żeby nie można było dawać znaków specjalinych i numerów
+	const handleValidation = (e: any) => {
+		e.target.value = e.target.value.replace(/[^a-zA-ZąćęłńóśżźĄĆĘŁŃÓŚŻŹ]/g, "");
+		e.target.value = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1).toLowerCase();
+	};
 
 	return (
 		<>
@@ -68,8 +63,8 @@ function App() {
 						name="name"
 						placeholder="np. Jan"
 						minLength={2}
-						onKeyDown={e => {
-							if (e.key === " ") e.preventDefault();
+						onKeyUp={e => {
+							handleValidation(e);
 						}}
 						required
 					/>
@@ -80,8 +75,8 @@ function App() {
 						name="name"
 						placeholder="np. Kowalski"
 						minLength={2}
-						onKeyDown={e => {
-							if (e.key === " ") e.preventDefault();
+						onKeyUp={e => {
+							handleValidation(e);
 						}}
 						required
 					/>
