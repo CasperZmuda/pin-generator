@@ -14,4 +14,4 @@ Każdy wygenerowany PIN ma ściśle określoną strukturę założoną z 11. zna
 
 `[C]` – losowy trzycyfrowy numer w przedziale `[000-999]`, generowany z użyciem Crypto API
 
-`[D]` – cyfra kontrolna w przedziale `[0-9]`, obliczana jako reszta z dzielenia przez 10 sumy wszystkich cyfr ciągu `[B][C]`
+`[D]` – cyfra kontrolna w przedziale `[0-9]`, obliczana jako reszta z dzielenia przez 10 sumy wszystkich cyfr ciągu
