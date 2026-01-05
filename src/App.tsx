@@ -1,7 +1,6 @@
 function App() {
 	const today = new Date();
 	today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
-
 	const maxDate = today.toISOString().split("T")[0];
 
 	const handleSubmit = (e: any) => {
@@ -36,7 +35,7 @@ function App() {
 				return String(checkDigit % 10);
 			}
 
-			return `${A}_${B}_${C}_${D}`;
+			return `${A}${B}${C}${D}`;
 		};
 
 		const ID_NUM = () => {
